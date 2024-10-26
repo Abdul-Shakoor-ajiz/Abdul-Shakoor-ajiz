@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eniveromental Biotech</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="bg">Enviromental Biotechnology</h1>
+            <a href="/home.html" target="_blank">Home</a>
+            <a href="/Presentation2.pptx" target="_blank">Details</a>
+            <a href="/addtionaldess.html" target="_blank">Ask.Q </a>
+        </nav>
+    </header>
+
+    <!-- carousel -->
+    <div class="carousel">
+        <!-- list item -->
+        <div class="list">
+            <div class="item">
+                <img src="/images/backgr1.avif">
+                <div class="content">
+                    <div class="author"> An Solution for Waste Management</div>
+                    <div class="title">Title: </div>
+                    <div class="topic"> Biological Treatment of I.Wastewater</div>
+                    <div class="des">
+                        <!-- lorem 50 -->
+                        Definition: Wastewater from industrial activities.
+Importance of Treatment: Protects ecosystems, complies with laws, and safeguards health.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/back2.avif">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">What is Biological Wastewater Treatment?</div>
+                    <div class="topic">Definition</div>
+                    <div class="des">
+                        Uses microorganisms to degrade pollutants naturally.
+                        Goal: Converts contaminants into harmless byproducts like water, carbon dioxide, and biomass.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/back3.avif">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title"> Why Choose Biological Treatment?</div>
+                    <div class="topic">Reduces use of harmful chemicals.</div>
+                    <div class="des">
+                        Cost-Effective: Often cheaper than chemical treatments.
+                        Efficient: Capable of breaking down organic matter and some inorganic compounds.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/back4.avif">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title"> Basic Principles of Biological Treatment</div>
+                    <div class="topic">Aerobic ,Aerobic & Facultative Systems</div>
+                    <div class="des">
+                        Work in both aerobic and anaerobic conditions
+                    </div>
+                    <div class="buttons">
+                        <button> <a href="https://www.linkedin.com/in/abdul-shakoor-ajiz-21a0522a6/" target="_blank">SEE MORE</a></button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- list thumnail -->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="/images/envi1.jpeg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/envi2.jpeg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/envi3.jpeg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/env4.jpeg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- next prev -->
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- time running -->
+        <div class="time"></div>
+    </div>
+
+    <!-- <script src="app.js"> -->
+        <script>
+        //step 1: get DOM
+let nextDom = document.getElementById('next');
+let prevDom = document.getElementById('prev');
+
+let carouselDom = document.querySelector('.carousel');
+let SliderDom = carouselDom.querySelector('.carousel .list');
+let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
+let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+let timeDom = document.querySelector('.carousel .time');
+
+thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+let timeRunning = 3000;
+let timeAutoNext = 7000;
+
+nextDom.onclick = function(){
+    showSlider('next');    
+}
+
+prevDom.onclick = function(){
+    showSlider('prev');    
+}
+let runTimeOut;
+let runNextAuto = setTimeout(() => {
+    next.click();
+}, timeAutoNext)
+function showSlider(type){
+    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
+    let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
+    
+    if(type === 'next'){
+        SliderDom.appendChild(SliderItemsDom[0]);
+        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        carouselDom.classList.add('next');
+    }else{
+        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+        carouselDom.classList.add('prev');
+    }
+    clearTimeout(runTimeOut);
+    runTimeOut = setTimeout(() => {
+        carouselDom.classList.remove('next');
+        carouselDom.classList.remove('prev');
+    }, timeRunning);
+
+    clearTimeout(runNextAuto);
+    runNextAuto = setTimeout(() => {
+        next.click();
+    }, timeAutoNext)
+}
+    </script>
+</body>
+</html>
