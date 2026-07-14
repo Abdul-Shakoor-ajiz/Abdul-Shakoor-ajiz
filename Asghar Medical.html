@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Asghar Medical Store Loralai</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#e8f4f8;
+padding:30px;
+}
+
+.container{
+
+max-width:1200px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 20px rgba(0,0,0,.2);
+
+}
+
+.header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:3px solid green;
+padding-bottom:20px;
+margin-bottom:30px;
+
+}
+
+.logo{
+
+width:90px;
+height:90px;
+background:#0b8d47;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:35px;
+font-weight:bold;
+
+}
+
+.header h1{
+
+color:#0b8d47;
+
+}
+
+.header h3{
+
+color:#555;
+
+}
+
+form{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+
+}
+
+.form-group{
+
+display:flex;
+flex-direction:column;
+
+}
+
+label{
+
+margin-bottom:6px;
+font-weight:bold;
+color:#333;
+
+}
+
+input,select,textarea{
+
+padding:12px;
+border:1px solid #999;
+border-radius:5px;
+font-size:16px;
+
+}
+
+textarea{
+
+height:80px;
+resize:none;
+
+}
+
+.full{
+
+grid-column:1/3;
+
+}
+
+.buttons{
+
+grid-column:1/3;
+display:flex;
+justify-content:center;
+gap:20px;
+
+}
+
+button{
+
+padding:15px 35px;
+border:none;
+font-size:18px;
+border-radius:5px;
+cursor:pointer;
+color:white;
+
+}
+
+.save{
+
+background:#0b8d47;
+
+}
+
+.print{
+
+background:#0077ff;
+
+}
+
+.clear{
+
+background:red;
+
+}
+
+button:hover{
+
+opacity:.8;
+
+}
+
+.footer{
+
+margin-top:30px;
+text-align:center;
+color:#666;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="logo">
+
+A
+
+</div>
+
+<div>
+
+<h1>ASGHAR MEDICAL STORE</h1>
+
+<h3>Loralai, Balochistan</h3>
+
+<p>Phone : ____________</p>
+
+</div>
+
+</div>
+
+<form>
+
+<div class="form-group">
+<label>Invoice Number</label>
+<input type="text">
+</div>
+
+<div class="form-group">
+<label>Date</label>
+<input type="date">
+</div>
+
+<div class="form-group">
+<label>Customer Name</label>
+<input type="text">
+</div>
+
+<div class="form-group">
+<label>Customer Phone</label>
+<input type="tel">
+</div>
+
+<div class="form-group">
+<label>Doctor Name</label>
+<input type="text">
+</div>
+
+<div class="form-group">
+<label>Prescription Number</label>
+<input type="text">
+</div>
+
+<div class="form-group">
+<label>Medicine Name</label>
+<input type="text">
+</div>
+
+<div class="form-group">
+<label>Medicine Company</label>
+<input type="text">
+</div>
+
+<div class="form-group">
+<label>Batch Number</label>
+<input type="text">
+</div>
+
+<div class="form-group">
+<label>Expiry Date</label>
+<input type="month">
+</div>
+
+<div class="form-group">
+<label>Quantity</label>
+<input type="number">
+</div>
+
+<div class="form-group">
+<label>Unit Price</label>
+<input type="number">
+</div>
+
+<div class="form-group">
+<label>Discount (%)</label>
+<input type="number">
+</div>
+
+<div class="form-group">
+<label>GST / Tax</label>
+<input type="number">
+</div>
+
+<div class="form-group">
+<label>Total Amount</label>
+<input type="number">
+</div>
+
+<div class="form-group">
+<label>Payment Method</label>
+
+<select>
+
+<option>Cash</option>
+
+<option>EasyPaisa</option>
+
+<option>JazzCash</option>
+
+<option>Bank Transfer</option>
+
+<option>Card</option>
+
+</select>
+
+</div>
+
+<div class="form-group full">
+
+<label>Customer Address</label>
+
+<textarea></textarea>
+
+</div>
+
+<div class="form-group full">
+
+<label>Special Notes</label>
+
+<textarea></textarea>
+
+</div>
+
+<div class="buttons">
+
+<button class="save">
+
+Save
+
+</button>
+
+<button class="print" type="button" onclick="window.print()">
+
+Print
+
+</button>
+
+<button class="clear" type="reset">
+
+Clear
+
+</button>
+
+</div>
+
+</form>
+
+<div class="footer">
+
+<h3>Thank You For Visiting Asghar Medical Store</h3>
+
+<p>Your Health Is Our Priority</p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
