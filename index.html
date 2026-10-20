@@ -1,55 +1,399 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Grading System</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header><div class="wrap"><h1>Student Grading System</h1><p>50 students · 7 subjects · Maximum marks: 1,100</p></div></header>
-<main>
-<section class="cards">
-  <div class="card"><span>Total students</span><strong id="totalStudents">50</strong></div>
-  <div class="card"><span>Passed</span><strong id="passedCount">43</strong></div>
-  <div class="card"><span>Failed</span><strong id="failedCount">7</strong></div>
-  <div class="card"><span>Class average</span><strong id="average">—</strong></div>
-  <div class="card"><span>Highest marks</span><strong id="highest">—</strong></div>
-</section>
-<section class="panel">
-<h2>Grade criteria</h2>
-<div class="rules">
-<div class="rule"><b>Fail</b>Below 300</div>
-<div class="rule"><b>Grade D</b>450–549</div>
-<div class="rule"><b>Grade C</b>550–749</div>
-<div class="rule"><b>Grade B</b>750–999</div>
-<div class="rule"><b>Grade A</b>1,000–1,099</div>
-<div class="rule"><b>Grade A+</b>1,100</div>
-</div>
-<!-- <p class="note">As requested, the sample class has 3 Fail, 10 Grade D, 8 Grade C, 15 Grade B, 10 Grade A and 4 Grade A+ students. The 300–449 range is left unassigned by the supplied cutoffs; the sample data avoids that range. Update the grade rules in the JavaScript if you want to assign it.</p> -->
-</section>
-<section class="panel">
-<h2>Student records</h2>
-<div class="controls">
-<input id="search" type="search" placeholder="Search student name or ID">
-<select id="gradeFilter" aria-label="Filter by grade">
-<option value="all">All grades</option><option value="Fail">Fail</option><option value="D">Grade D</option><option value="C">Grade C</option><option value="B">Grade B</option><option value="A">Grade A</option><option value="Aplus">Grade A+</option><option value="Unassigned">Unassigned range</option>
-</select>
-<button id="addBtn" type="button">Add student</button>
-<!-- <button id="csvBtn" type="button" class="secondary">Export CSV</button> -->
-<button id="printBtn" type="button" class="secondary">Print results</button>
-</div>
-<p id="message" class="error" role="status"></p>
-<div class="table-wrap"><table>
-<thead><tr><th>ID</th><th>Student name</th><th>Biology</th><th>Chemistry</th><th>Physics</th><th>English</th><th>Math</th><th>Biotechnology</th><th>IR</th><th>Total / 1100</th><th>Grade</th></tr></thead>
-<tbody id="studentRows">
-  
-</tbody>
-</table></div>
-<!-- <p class="note">Edit a student's name or marks directly in the table. Each of the 7 subject marks is out of 100; the total is calculated automatically out of 700? No — the requested maximum is 1,100, so enter marks across the 7 subject fields with a combined maximum of 1,100. Subject fields accept up to 200 marks each.</p> -->
-</section>
-</main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ideal English Public School, Loralai, Balochistan. Quality education, character building and a brighter future."
+    />
+    <title>Ideal English Public School | Loralai</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="portal.html"> -->
+  </head>
+  <body>
+    <header class="header">
+      <div class="topbar">
+        <span>📍 Loralai, Balochistan, Pakistan</span>
+        <span>✉ Contact the school office for enquiries</span>
+      </div>
 
-<script src="java.js"></script>
-</body>
+      <nav class="navbar container">
+        <a href="#home" class="brand">
+          <div class="crest">IE<span>✦</span></div>
+          <div class="brand-text">
+            <strong>IDEAL ENGLISH</strong>
+            <small>PUBLIC SCHOOL</small>
+          </div>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#academics">Academics</a>
+          <a href="#facilities">Facilities</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#notices">Notices</a>
+          <a href="#contact">Contact</a>
+          <a href="#portal" class="nav-login">School Portal ↗</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <span class="eyebrow">LEARN • GROW • ACHIEVE</span>
+          <h1>
+            Building Bright Minds.<br /><span>Shaping Better Futures.</span>
+          </h1>
+          <p>
+            Welcome to Ideal English Public School, Loralai — where knowledge,
+            discipline, confidence and character prepare students for a brighter
+            tomorrow.
+          </p>
+          <div class="hero-buttons">
+            <a href="#academics" class="btn btn-gold">Explore Our School ↗</a>
+            <a href="#contact" class="btn btn-outline">Admission Enquiries</a>
+          </div>
+          <div class="hero-note">
+            <span class="note-star">✦</span>
+            Nursery to Grade 10 <span class="note-dot">•</span>
+            A Supportive Learning Environment
+          </div>
+        </div>
+      </section>
+
+      <section class="welcome-strip">
+        <div class="container welcome-inner">
+          <div>
+            <span class="eyebrow">WELCOME TO OUR SCHOOL</span>
+            <h2>Education with Purpose.<br />Excellence with Values.</h2>
+          </div>
+          <p>
+            We aim to nurture curious learners, responsible citizens and
+            confident individuals through quality education and a caring school
+            community.
+          </p>
+          <a class="text-link" href="#about">Discover Our Story →</a>
+        </div>
+      </section>
+
+      <section class="stats-section">
+        <div class="container stats-grid">
+          <div class="stat"><strong>12</strong><span>Grade Levels</span></div>
+          <div class="stat">
+            <strong>3</strong><span>Sections Per Grade</span>
+          </div>
+          <div class="stat">
+            <strong>A–C</strong><span>Class Sections</span>
+          </div>
+          <div class="stat">
+            <strong>1</strong><span>Shared School Community</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="about">
+        <div class="about-grid">
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85"
+              alt="Students learning together in a classroom"
+            />
+            <div class="image-badge">
+              <span>✦</span>
+              <strong>A Brighter Future</strong>
+              <small>Starts with learning</small>
+            </div>
+          </div>
+          <div class="about-content">
+            <span class="eyebrow">WHO WE ARE</span>
+            <h2>A Place Where Every Child Can <span>Shine.</span></h2>
+            <p>
+              At Ideal English Public School, we believe every child deserves
+              the opportunity to learn, explore and succeed. Our goal is to
+              create an environment where academic growth goes hand in hand with
+              kindness and responsibility.
+            </p>
+            <div class="value-list">
+              <div>
+                <span>✓</span>
+                <p>
+                  <strong>Quality Education</strong
+                  ><small>Strong foundations in essential subjects.</small>
+                </p>
+              </div>
+              <div>
+                <span>✓</span>
+                <p>
+                  <strong>Character Building</strong
+                  ><small>Respect, honesty and personal responsibility.</small>
+                </p>
+              </div>
+              <div>
+                <span>✓</span>
+                <p>
+                  <strong>Individual Growth</strong
+                  ><small>Encouragement for every learner.</small>
+                </p>
+              </div>
+            </div>
+            <a href="#contact" class="btn btn-navy">Contact Our School →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section academics-section" id="academics">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">OUR ACADEMIC JOURNEY</span>
+            <h2>Every Stage. <span>Every Opportunity.</span></h2>
+            <p>
+              A learning journey from early childhood through secondary
+              education.
+            </p>
+          </div>
+          <div class="grade-grid">
+            <article class="grade-card">
+              <div class="grade-icon">🌱</div>
+              <span class="grade-number">STAGE 01</span>
+              <h3>Early Years</h3>
+              <p>Playful exploration, communication and foundational skills.</p>
+              <span class="grade-label">Nursery & KG</span>
+            </article>
+            <article class="grade-card">
+              <div class="grade-icon">📚</div>
+              <span class="grade-number">STAGE 02</span>
+              <h3>Primary School</h3>
+              <p>Core literacy, numeracy, curiosity and learning habits.</p>
+              <span class="grade-label">Grades 1–5</span>
+            </article>
+            <article class="grade-card">
+              <div class="grade-icon">🔭</div>
+              <span class="grade-number">STAGE 03</span>
+              <h3>Middle School</h3>
+              <p>Deeper understanding, independent thinking and discovery.</p>
+              <span class="grade-label">Grades 6–8</span>
+            </article>
+            <article class="grade-card">
+              <div class="grade-icon">🎓</div>
+              <span class="grade-number">STAGE 04</span>
+              <h3>Secondary School</h3>
+              <p>Subject knowledge, exam preparation and future goals.</p>
+              <span class="grade-label">Grades 9–10</span>
+            </article>
+          </div>
+          <div class="section-footnote">
+            Each grade can be organised into Sections A, B and C.
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="facilities">
+        <div class="section-heading">
+          <span class="eyebrow">THE IDEAL EXPERIENCE</span>
+          <h2>More Than <span>a Classroom.</span></h2>
+          <p>
+            A school experience designed to encourage learning and development.
+          </p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <span>📖</span>
+            <h3>Learning Excellence</h3>
+            <p>Build strong foundations and a lifelong love of learning.</p>
+          </article>
+          <article class="feature-card">
+            <span>🧑‍🏫</span>
+            <h3>Dedicated Teachers</h3>
+            <p>Supportive guidance and attention to students' progress.</p>
+          </article>
+          <article class="feature-card">
+            <span>🏅</span>
+            <h3>Activities & Growth</h3>
+            <p>Encourage creativity, teamwork and confidence.</p>
+          </article>
+          <article class="feature-card">
+            <span>🤝</span>
+            <h3>Parent Partnership</h3>
+            <p>Keep families informed and involved in education.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portal-section" id="portal">
+        <div class="container portal-inner">
+          <div>
+            <span class="eyebrow">SCHOOL MANAGEMENT</span>
+            <h2>One School.<br /><span>One Connected Community.</span></h2>
+            <p>
+              Access the school management system using your authorised account.
+            </p>
+          </div>
+          <div class="portal-cards">
+            <a href="login.html" class="portal-card"
+              ><span>🛡️</span><strong>Admin Portal</strong
+              ><small>School management</small><b>Open portal →</b></a
+            >
+            <a href="login.html" class="portal-card"
+              ><span>🧑‍🏫</span><strong>Teacher Portal</strong
+              ><small>Attendance and marks</small><b>Open portal →</b></a
+            >
+            <a href="login.html" class="portal-card"
+              ><span>🎒</span><strong>Student Portal</strong
+              ><small>Academic information</small><b>Open portal →</b></a
+            >
+            <a href="login.html" class="portal-card"
+              ><span>👨‍👩‍👧</span><strong>Parent Portal</strong
+              ><small>Progress and notices</small><b>Open portal →</b></a
+            >
+          </div>
+        </div>
+        <p class="demo-warning">
+          Portal links are design placeholders until secure login and database
+          access are configured.
+        </p>
+      </section>
+
+      <section class="section container" id="notices">
+        <div class="section-heading">
+          <span class="eyebrow">STAY INFORMED</span>
+          <h2>School <span>Announcements.</span></h2>
+          <p>Important information for our school community.</p>
+        </div>
+        <div class="notice-list">
+          <article class="notice">
+            <div class="notice-date">
+              <strong>01</strong><span>NOTICE</span>
+            </div>
+            <div>
+              <span class="notice-tag">Admissions</span>
+              <h3>Admissions Information</h3>
+              <p>
+                Please contact the school office for current admission dates and
+                requirements.
+              </p>
+            </div>
+          </article>
+          <article class="notice">
+            <div class="notice-date">
+              <strong>02</strong><span>NOTICE</span>
+            </div>
+            <div>
+              <span class="notice-tag">Parents</span>
+              <h3>Parent Communication</h3>
+              <p>
+                Families can contact the school office for updates about
+                meetings and student progress.
+              </p>
+            </div>
+          </article>
+          <article class="notice">
+            <div class="notice-date">
+              <strong>03</strong><span>NOTICE</span>
+            </div>
+            <div>
+              <span class="notice-tag">School</span>
+              <h3>School Calendar</h3>
+              <p>
+                Confirmed examination dates, holidays and events will be
+                announced by the school.
+              </p>
+            </div>
+          </article>
+        </div>
+        <p class="section-footnote">
+          These are sample notices. Replace them with approved school
+          announcements.
+        </p>
+      </section>
+
+      <section class="gallery-section section" id="gallery">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">MOMENTS THAT MATTER</span>
+            <h2>A Glimpse of <span>School Life.</span></h2>
+            <p>Learning, discovery and the joy of growing together.</p>
+          </div>
+          <div class="gallery-grid">
+            <img
+               src="WhatsApp Image 2026-10-20 at 11.35.58 AM.jpeg" 
+               alt="Classroom learning">
+            <img
+              src="WhatsApp Image 2026-10-20 at 11.35.58 AM (2).jpeg"
+              alt="Students working together"
+            />
+            <img
+              src="WhatsApp Image 2026-10-20 at 11.35.58 AM (1).jpeg"
+              alt="Students studying"
+            />
+          </div>
+          <p class="section-footnote">
+            Sample photographs only. Replace with authorised school photographs
+            before publication.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact-section section" id="contact">
+        <div class="container contact-inner">
+          <div>
+            <span class="eyebrow">LET'S CONNECT</span>
+            <h2>Give Your Child a <span>Strong Start.</span></h2>
+            <p>
+              Interested in admissions? Contact Ideal English Public School in
+              Loralai for information.
+            </p>
+          </div>
+          <div class="contact-box">
+            <h3>School Office</h3>
+            <p>📍 Loralai, Balochistan, Pakistan</p>
+            <p>📞 Add your official school phone number</p>
+            <p>✉ Add your official school email address</p>
+            <a
+              href="mailto:school@example.com"
+              class="btn btn-gold"
+              id="emailLink"
+              >Email Enquiry →</a
+            >
+            <small
+              >Replace the sample email and phone details before
+              publishing.</small
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <a href="#home" class="brand footer-brand">
+          <div class="crest">IE<span>✦</span></div>
+          <div class="brand-text">
+            <strong>IDEAL ENGLISH</strong><small>PUBLIC SCHOOL</small>
+          </div>
+        </a>
+        <p>Learning with purpose. Growing with confidence.</p>
+        <span>© <span id="year"></span> Ideal English Public School.</span>
+      </div>
+    </footer>
+
+    <script src="scrpit.js"></script>
+  </body>
 </html>
